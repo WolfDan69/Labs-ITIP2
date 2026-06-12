@@ -1,0 +1,3 @@
+package org.example.security;
+import org.example.model.entity.User; import org.example.repository.UserRepository; import org.springframework.security.core.userdetails.*; import org.springframework.stereotype.Service;
+@Service public class CustomUserDetailsService implements UserDetailsService { private final UserRepository repo; public CustomUserDetailsService(UserRepository repo){this.repo=repo;} public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException { User user=repo.findByEmail(username).orElseThrow(()->new UsernameNotFoundException("Пользователь не найден")); return new CustomUserDetails(user); } }

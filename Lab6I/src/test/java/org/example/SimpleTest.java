@@ -1,0 +1,2 @@
+package org.example; import org.junit.jupiter.api.Test; import static org.junit.jupiter.api.Assertions.*;
+class SimpleTest { @Test void shouldAddNumbers(){assertEquals(5,2+3);} @Test void shouldCheckBasicAssertions(){String value="Spring"; assertNotNull(value); assertTrue(value.startsWith("Sp")); assertFalse(value.isEmpty());} @Test void shouldThrowArithmeticException(){assertThrows(ArithmeticException.class,()->{int result=10/0;});} }
